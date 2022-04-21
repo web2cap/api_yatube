@@ -10,13 +10,6 @@ from .serializers import (
     UserSerializer,
 )
 
-"""class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)"""
-
 
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
