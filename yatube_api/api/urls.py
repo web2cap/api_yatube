@@ -7,9 +7,12 @@ from .views import CommentViewSet, GroupViewSet, PostViewSet, UserViewSet
 app_name = "posts"
 
 router = routers.DefaultRouter()
-router.register(r"posts", PostViewSet)
-router.register(r"groups", GroupViewSet)
-router.register(r"groups", GroupViewSet)
+router.register(r"posts", PostViewSet, basename="posts")
+router.register(r"groups", GroupViewSet, basename="groups")
+router.register(r"users", UserViewSet, basename="users")
+router.register(
+    r"posts/(?P<post_id>[^/.]+)/comments", CommentViewSet, basename="comments"
+)
 ### api/v1/posts/{post_id}/comments/
 ### api/v1/posts/{post_id}/comments/{comment_id}/
 
