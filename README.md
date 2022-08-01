@@ -1,76 +1,79 @@
-# yatube_api
-## API для соц. сети авторов статей
+# API for Bloggers Social Network
+Built on Django Rest Framework
 
-##### Автор: Павел Кошелев 
+Final version https://github.com/web2cap/api_final_yatube 
 
 
-## Технологии:
+## Technology:
 
 - Python and Django
 - Rest Framework
-- TokenAuthentication
+- JWTAuthentication and djoser
 
-## Установка
+## Installation
+- Clone the repository
+- Create and activate virtual environment
+- Install all required packages from requirements.txt.
+- Apply migrations
 
-- Создайте и активируйте виртуальное окружение
-- Установите все необходимые пакеты из requirements.txt.
-- Примените миграции
-
-## Примеры запросов и ответов к API:
-| Ресурс | Тип | Путь | Передаваемые данные (JSON) |
+## Examples of API requests and responses:
+| Resource | Type | Path | Transferred data (JSON) |
 | ------ | ------ | ------ | ------ |
-| Получить API токен | POST | /api/v1/api-token-auth/ | {"username":"","password":""}
+| Get an API token | POST | /api/v1/api-token-auth/ | {"username":"","password":""}
 
-#### Ответ:
+#### Answer:
 ```
 {
-    "token": "db93aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    "token": "db93aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 }
 ```
 
-| Ресурс | Тип | Путь |
-| ------ | ------ | ------ | 
-| Получить Список постов | GET | /api/v1/posts/ |
+| Resource | Type | Path |
+| ------ | ------ | ------ |
+| Get List of Posts | GET | /api/v1/posts/ |
 
-#### Ответ:
+#### Answer:
 ```
 [
     {
         "id": 1,
-        "text": "Вечером собрались в редакции «Русской мысли», чтобы поговорить о народном театре. Проект Шехтеля всем нравится.",
+        "text": "In the evening we gathered in the editorial office to talk about the theatre.",
         "pub_date": "2022-04-21T11:22:03.167305Z",
         "author": "test",
-        "image": null,
-        "group": 1
+        "image": null
+        group: 1
     }
 ]
 ```
 
-| Ресурс | Тип | Путь | Передаваемые данные (JSON) |
+| Resource | Type | Path | Transferred data (JSON) |
 | ------ | ------ | ------ | ------ |
-| Добавить пост | POST | /api/v1/posts/ | {"text": "","group": ""} 
+| Add post | POST | /api/v1/posts/ | {"text": "","group": ""}
 
-#### Ответ:
+#### Answer:
 ```
 {
     "id": 14,
-    "text": "Вечером собрались в редакции «Русской мысли», чтобы поговорить о народном театре. Проект Шехтеля всем нравится.",
+    "text": "In the evening we gathered at the editorial office to talk about the folk theatre.",
     "author": "anton",
-    "image": null,
-    "group": 1,
+    "image": null
+    group: 1
     "pub_date": "2021-06-01T08:47:11.084589Z"
-} 
+}
 ```
 
-## Эндпоинты
-| Путь | Тип | Описание |
+## Endpoints
+| Path | Type | Description |
 | ------ | ------ | ------ |
-| api/v1/api-token-auth/ | (POST) | передаём логин и пароль, получаем токен |
-| api/v1/posts/ | (GET, POST) | получаем список всех постов или создаём новый пост |
-| api/v1/posts/{post_id}/ | (GET, PUT, PATCH, DELETE) | получаем, редактируем или удаляем пост по i |
-| api/v1/groups/ | (GET) | получаем список всех групп |
-| api/v1/groups/{group_id}/ | (GET) | получаем информацию о группе по id |
-| api/v1/posts/{post_id}/comments/ | (GET, POST) | получаем список всех комментариев поста с id=post_id или создаём новый, указав id поста, который хотим прокомментировать |
-| api/v1/posts/{post_id}/comments/{comment_id}/ | (GET, PUT, PATCH, DELETE) | получаем, редактируем или удаляем комментарий по id у поста с id=post_id |
+| api/v1/api-token-auth/ | (POST) | pass login and password, get token |
+| api/v1/posts/ | (GET, POST) | get a list of all posts or create a new post |
+| api/v1/posts/{post_id}/ | (GET, PUT, PATCH, DELETE) | get, edit or delete post by i |
+| api/v1/groups/ | (GET) | get a list of all groups |
+| api/v1/groups/{group_id}/ | (GET) | get information about the group by id |
+| api/v1/posts/{post_id}/comments/ | (GET, POST) | get a list of all post comments with id=post_id or create a new one by specifying the id of the post we want to comment on |
+| api/v1/posts/{post_id}/comments/{comment_id}/ | (GET, PUT, PATCH, DELETE) | getting, editing or deleting a comment by id for a post with id=post_id |
 
-**Созданно при поддержке Яндекс.Практикум**
+
+### Author:
+
+Pavel Koshelev
